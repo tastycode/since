@@ -41,6 +41,10 @@ a {
 
 .action-numeral {
   padding-top: 5rem;
+  @include media($bpSmall) { 
+    padding-top: 2rem;
+
+  }
 
   &--figure {
     font-size: modular-scale(7, 1rem, $baseRatio);
