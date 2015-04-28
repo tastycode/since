@@ -7,5 +7,5 @@ angular.module('sinceApp')
     $scope.actionLink = "http://www.cnn.com/2015/04/19/us/baltimore-freddie-gray-death/";
     $scope.actionTags = ["freddiegray"];
 
-    $scope.actionText = "The police executed an unarmed african-american.";
+    $scope.actionText = "The police executed a black male.";
   });
