@@ -9,7 +9,6 @@
     "dependencies": {
       "bourbon": "~4.2.2",
       "neat": "~1.7.2",
-      "react-disqus-thread": "~0.1.0",
       "moment": "~2.10.2"
     }
   },

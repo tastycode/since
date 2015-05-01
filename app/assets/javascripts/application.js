@@ -15,6 +15,5 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
-//= require react-disqus-thread/dist/react-disqus-thread
 //= require moment/moment
 //= require_tree .
