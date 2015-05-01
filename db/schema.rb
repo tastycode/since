@@ -13,14 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20150501005915) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "since_events", force: :cascade do |t|
-    t.integer  "since_id_id"
+    t.integer  "since_id"
+    t.integer  "sinces_id"
     t.datetime "date"
     t.string   "link"
     t.string   "description"
   end
 
-  add_index "since_events", ["since_id_id"], name: "index_since_events_on_since_id_id"
+  add_index "since_events", ["sinces_id"], name: "index_since_events_on_sinces_id", using: :btree
 
   create_table "sinces", force: :cascade do |t|
     t.string   "phrase"
@@ -33,4 +37,5 @@ ActiveRecord::Schema.define(version: 20150501005915) do
     t.text     "description"
   end
 
+  add_foreign_key "since_events", "sinces"
 end
