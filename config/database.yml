@@ -10,3 +10,7 @@ development:
 test:
   database: since_test
   <<: *default
+
+production:
+  database: since_production
+  <<: *default
