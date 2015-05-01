@@ -4,6 +4,7 @@
   <title>
     <%= content_for(:title) || "Since When" %>
   </title>
+  <meta name="og:type" content="article">
   <meta name="og:title" content="<%= content_for(:title) || "Since When"%>"/>
   <meta name="og:image" content="<%= asset_url('og-image.png')%>"/>
   <% if content_for(:og_description).present? %>
