@@ -1,0 +1,3 @@
+<% content_for(:title) { "How long has it been since #{@since.phrase}" } %>
+<% content_for(:og_description) { @since.description } %>
+<%= react_component('SinceDetail', { since: @since, prerender: params[:noprerender].nil?, pageLink: root_url(subdomain: @since.slug)}) %>

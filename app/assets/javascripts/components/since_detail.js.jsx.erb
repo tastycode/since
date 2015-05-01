@@ -1,0 +1,56 @@
+/** @jsx React.DOM **/
+
+var SinceDetail = React.createClass({
+  getInitialState: function() {
+    return { since: this.props.since, pageLink: this.props.pageLink };
+  },
+  componentDidMount: function() {
+    this.mountDisqus();
+  },
+  render: function() {
+    var since = this.state.since;
+    var daysSince = moment().diff(moment(since.date), 'days');
+
+    return (
+      <div>
+        <div className="action-numeral">
+        <div className="action-numeral--figure">{daysSince}</div>
+          <div className="action-numeral--subtext">days since</div>
+          <a href={since.link} className="action-numeral--text">{since.phrase}</a>
+        </div>
+        <div className="share-section">
+          <div className="share-section--title">Share</div>
+          <hr className="share-section--separator"/>
+          <div className="share-section--buttons">
+            <a href={"http://www.tumblr.com/share/link?url=" + escape(this.state.pageLink) + "&name=" + escape(since.phrase)}>
+            <img src="<%= asset_path('tumblr.png')%>"/>
+            </a>
+            <a href={"http://www.facebook.com/sharer.php?s=100&url=" + escape(this.state.pageLink)}>
+              <img src="<%= asset_path('facebook.png')%>"/>
+            </a>
+            <a href={"https://twitter.com/share?url=" + escape(this.state.pageLink) + "&hashtags=" + since.hashtag}>
+              <img src="<%= asset_path('twitter.png')%>"/>
+            </a>
+          </div>
+        </div>
+        <div className="share-section">
+          <div className="share-section--title">Discuss</div>
+          <hr className="share-section--separator"/>
+          <div id="disqus_thread"></div>
+        </div>
+      </div>
+    );
+  },
+  mountDisqus: function() {
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'sincewhat';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  }
+});

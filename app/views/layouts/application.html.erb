@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= content_for(:title) || "Since When" %>
+  </title>
+  <meta name="og:title" content="<%= content_for(:title) || "Since When"%>"/>
+  <meta name="og:image" content="<%= asset_url('og-image.png')%>"/>
+  <% if content_for(:og_description).present? %>
+    <meta name="og:description" content="<%=content_for(:og_description)%>"/>
+  <% end %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="//use.typekit.net/yyl0rcs.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <%= yield %>
+  <footer>
+    by <a href="//twitter.com/tastyc0de">tastyc0de</a>
+  </footer>
+</body>
+</html>
